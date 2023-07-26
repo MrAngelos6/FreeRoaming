@@ -1,15 +1,8 @@
 import React from 'react'
-import { Table, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
-import AllemagneTable from './tables/AllemagneTable';
-import AlgerieTable from './tables/AlgerieTable';
-import AntillesGuyaneTable from './tables/AntillesGuyaneTable';
-import ArabieSaouditeTable from './tables/ArabieSaouditeTable';
-import ArgentineTable from './tables/ArgentineTable';
-import AutricheTable from './tables/AutricheTable';
-import AustralieTable from './tables/AustralieTable';
-import BelgiqueTable from './tables/BelgiqueTable';
-import BeninTable from './tables/BeninTable';
-import BulgarieTable from './tables/BulgarieTable';
+import { Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react'
+import Operator from '@/interfaces/operator'
+import { Check, HelpCircle, X } from 'lucide-react'
+import styles from './CountrySwitch.module.css'
 
 interface CountrySwitchProps {
     value: string | undefined;
@@ -18,34 +11,42 @@ interface CountrySwitchProps {
 const CountrySwitch = ({
     value,
 }: CountrySwitchProps) => {
-    const renderTable = React.useMemo(() => {
-        switch (value) {
-            case '1':
-                return <AllemagneTable />;
-            case '2':
-                return <AlgerieTable />;
-            case '3':
-                return <AntillesGuyaneTable />;
-            case '4':
-                return <ArabieSaouditeTable />;
-            case '5':
-                return <ArgentineTable />;
-            case '6':
-                return <AutricheTable />;
-            case '7':
-                return <AustralieTable />;
-            case '8':
-                return <BelgiqueTable />;
-            case '9':
-                return <BeninTable />;
-            case '10':
-                return <BulgarieTable />;
+    const [operatorList, setOperatorList] = React.useState<Operator[]>([]);
+
+    React.useEffect(() => {
+        if (value) {
+            import(`../data/${value}.ts`)
+                .then((d) => setOperatorList(d.default))
+                .catch(() => console.error("Erreur le fichier demandé n'existe pas"));
         }
     }, [value]);
+
+    const renderIcon = (data: boolean): React.ReactElement => {
+        if (data === null) {
+            return <HelpCircle color='red' />;
+        } else if (data) {
+            return <Check color='green' />;
+        }
+        return <X color='red' />;
+    };
+
+    const renderOperator = React.useMemo((): React.ReactNode => (
+        operatorList.map((operator: Operator, key) => (
+            <Tr key={key}>
+                <Td>{operator.name}</Td>
+                { operator.types.map((type, key) => <Td key={key}>{renderIcon(type)}</Td>) }
+            </Tr>
+        )) 
+    ), [operatorList]);
 
     return value ? (
         <TableContainer>
             <Table variant='striped'>
+                <TableCaption>
+                    <Text><Check color='green' className={styles.status} />: Confirmé disponible par un abonné</Text>
+                    <Text><X color='red' className={styles.status} />: Confirmé indisponible par un abonné</Text>
+                    <Text><HelpCircle color='red' className={styles.status} />: Confirmé disponible par Free mais non vérifié</Text>
+                </TableCaption>
                 <Thead>
                     <Tr>
                         <Th>Opérateur partenaire</Th>
@@ -57,7 +58,7 @@ const CountrySwitch = ({
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {renderTable}
+                    { renderOperator }
                 </Tbody>
             </Table>
         </TableContainer>
