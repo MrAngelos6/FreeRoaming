@@ -3,6 +3,7 @@ import { Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tr } f
 import Operator from '@/interfaces/operator'
 import { Check, HelpCircle, X } from 'lucide-react'
 import styles from './CountrySwitch.module.css'
+import { Link } from '@chakra-ui/next-js'
 
 interface CountrySwitchProps {
     value: string | undefined;
@@ -54,7 +55,7 @@ const CountrySwitch = ({
                         <Th>3G</Th>
                         <Th>4G</Th>
                         <Th>5G</Th>
-                        <Th>5G confirmée par @Free_1337</Th>
+                        <Th>5G confirmée par <Link href='https://twitter.com/Free_1337' color='blue.400'>@Free_1337</Link></Th>
                     </Tr>
                 </Thead>
                 <Tbody>
