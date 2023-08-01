@@ -1,4 +1,3 @@
-import React from 'react'
 import { Text } from '@chakra-ui/react';
 import { Check, HelpCircle, X } from 'lucide-react';
 import styles from './CountrySwitch.module.css'

@@ -1,4 +1,3 @@
-import React from 'react'
 import * as ReactDOMServer from 'react-dom/server';
 import { GeoJSON, MapContainer, TileLayer } from "react-leaflet";
 import { Feature, Geometry } from "geojson";
@@ -23,7 +22,7 @@ const Map = () => {
     <MapContainer
       center={[46.320966437203424, 2.3830497200425023]}
       zoom={6}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%" }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
