@@ -1,9 +1,8 @@
-import React from 'react'
+import { Link } from '@chakra-ui/next-js'
 import { Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react'
 import { Check, HelpCircle, X } from 'lucide-react'
-import { Link } from '@chakra-ui/next-js'
-import Operator from '@/interfaces/operator'
 import Caption from './Caption'
+import Operator from '@/interfaces/operator'
 
 interface CountryTableProps {
     data: Operator[];
