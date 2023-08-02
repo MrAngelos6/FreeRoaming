@@ -1,8 +1,9 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import { Container, Skeleton, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
+import { Box, Container, Skeleton, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
+import Caption from '@/components/Caption'
 import CountrySelector from '@/components/CountrySelector'
 import CountrySwitch from '@/components/CountrySwitch'
 import Navbar from '@/components/Navbar'
@@ -24,7 +25,12 @@ const Home = () => {
       </Head>
 
       <Container maxW='container.lg'>
-        <Tabs variant='soft-rounded' colorScheme='yellow' isFitted isLazy>
+        <Tabs
+          colorScheme='yellow'
+          isFitted
+          isLazy
+          variant='soft-rounded'
+        >
           <Navbar />
 
           <TabPanels>
@@ -32,8 +38,11 @@ const Home = () => {
               <CountrySelector onChange={setCountry} />
               <CountrySwitch value={country} />
             </TabPanel>
-            <TabPanel maxW='full' h='container.sm'>
-              <LeafletMap />
+            <TabPanel>
+              <Box h='container.sm' mb={2}>
+                <LeafletMap />
+              </Box>
+              <Caption />
             </TabPanel>
           </TabPanels>
         </Tabs>

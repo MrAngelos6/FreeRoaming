@@ -1,6 +1,7 @@
-import { Box, Button, Flex, TabList, useColorMode } from '@chakra-ui/react';
-import { List, Map, Moon, Sun } from 'lucide-react';
+import { Box, Button, ButtonGroup, Flex, IconButton, TabList, useColorMode } from '@chakra-ui/react';
+import { Github, List, Map, Moon, Sun } from 'lucide-react';
 import CustomTab from './CustomTab';
+import { Link } from '@chakra-ui/next-js';
 
 const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -12,7 +13,16 @@ const Navbar = () => {
                     <CustomTab icon={<List />} label='Liste' />
                     <CustomTab icon={<Map />} label='Carte' />
                 </TabList>
-                <Button ml='auto' onClick={toggleColorMode}>{ colorMode === 'light' ? <Moon /> : <Sun />}</Button>
+                <ButtonGroup variant='outline' ml={2}>
+                    <IconButton
+                        aria-label={`Switch to ${colorMode} mode`}
+                        icon={colorMode === 'light' ? <Moon /> : <Sun />}
+                        onClick={toggleColorMode}
+                    />
+                    <Link href='https://github.com/MrAngelos6/FreeRoaming'>
+                        <Button aria-label="Github page" rightIcon={<Github />}>Github</Button>
+                    </Link>
+                </ButtonGroup>
             </Flex>
         </Box>
     )
