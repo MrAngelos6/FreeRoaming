@@ -1,6 +1,6 @@
 import { HStack, Select } from '@chakra-ui/react'
 import { Flag } from 'lucide-react'
-import PAYS from '@/constants/Pays';
+import PAYS from '@/constants/Pays'
 
 interface CountrySelectorProps {
     onChange: (value: string) => void;
@@ -9,9 +9,7 @@ interface CountrySelectorProps {
 const CountrySelector = ({
     onChange,
 }: CountrySelectorProps) => {
-    const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        onChange(e.target.value);
-    }
+    const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value);
 
     return (
         <HStack>
@@ -19,7 +17,7 @@ const CountrySelector = ({
                 { PAYS.map((pays) => <option key={pays.code} value={pays.code}>{pays.name}</option>) }
             </Select>
         </HStack>
-    )
+    );
 };
 
 export default CountrySelector;

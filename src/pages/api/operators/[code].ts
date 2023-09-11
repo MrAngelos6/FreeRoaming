@@ -1,6 +1,6 @@
-import Operator from '@/interfaces/operator';
-import ResponseError from '@/interfaces/responseError';
 import { NextApiRequest, NextApiResponse } from 'next'
+import Operator from '@/interfaces/operator'
+import ResponseError from '@/interfaces/responseError'
 
 const operatorsHandler = async (
   req: NextApiRequest,
@@ -17,4 +17,4 @@ const operatorsHandler = async (
     : res.status(404).json({ message: `Le Pays avec le code: ${code} n'existe pas.` });
 }
 
-export default operatorsHandler;
+export default operatorsHandler

@@ -9,19 +9,19 @@ interface CountryTableProps {
     withCaption?: boolean;
 }
 
+const renderIcon = (status: boolean): React.ReactElement => {
+    if (status === null) {
+        return <HelpCircle color='red' />;
+    } else if (status) {
+        return <Check color='green' />;
+    }
+    return <X color='red' />;
+};
+
 const CountryTable = ({
     data,
     withCaption = false
 }: CountryTableProps) => {
-    const renderIcon = (status: boolean): React.ReactElement => {
-        if (status === null) {
-            return <HelpCircle color='red' />;
-        } else if (status) {
-            return <Check color='green' />;
-        }
-        return <X color='red' />;
-    };
-
     const renderOperator = (): React.ReactNode => (
         data.map((operator: Operator, key: number) => (
             <Tr key={key}>
@@ -54,7 +54,7 @@ const CountryTable = ({
                 </Tbody>
             </Table>
         </TableContainer>
-    )
+    );
 };
 
 export default CountryTable;

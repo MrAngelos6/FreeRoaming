@@ -11,7 +11,7 @@ const {
   Skeleton,
   Table,
   Tabs,
-} = chakraTheme.components
+} = chakraTheme.components;
 
 const theme = extendBaseTheme({
   components: {
@@ -23,15 +23,14 @@ const theme = extendBaseTheme({
     Table,
     Tabs,
   }
-})
+});
 
-const App = ({ Component, pageProps }: AppProps) => {
-  return (
-    <ChakraBaseProvider theme={theme}>
-      <Component {...pageProps} />
-      <Analytics />
-    </ChakraBaseProvider>
-  );
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <ChakraBaseProvider theme={theme}>
+    <Component {...pageProps} />
+    <Analytics />
+  </ChakraBaseProvider>
+);
+
 
 export default App;
