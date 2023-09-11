@@ -1,5 +1,5 @@
 import { ChakraBaseProvider, extendBaseTheme } from '@chakra-ui/react'
-import chakraTheme from '@chakra-ui/theme'
+import { theme } from '@chakra-ui/theme'
 import { Analytics } from '@vercel/analytics/react'
 import type { AppProps } from 'next/app'
 
@@ -11,9 +11,9 @@ const {
   Skeleton,
   Table,
   Tabs,
-} = chakraTheme.components;
+} = theme.components;
 
-const theme = extendBaseTheme({
+const customTheme = extendBaseTheme({
   components: {
     Button,
     Container,
@@ -26,7 +26,7 @@ const theme = extendBaseTheme({
 });
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <ChakraBaseProvider theme={theme}>
+  <ChakraBaseProvider theme={customTheme}>
     <Component {...pageProps} />
     <Analytics />
   </ChakraBaseProvider>
