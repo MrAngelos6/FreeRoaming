@@ -1,13 +1,12 @@
 import * as ReactDOMServer from 'react-dom/server'
 import { GeoJSON, MapContainer, TileLayer } from 'react-leaflet'
-import { Feature, Geometry } from 'geojson'
 import { Layer } from 'leaflet'
 import CountryTable from './CountryTable'
 import countries from '../data/countries'
 import styles from './Map.module.css'
 import 'leaflet/dist/leaflet.css'
 
-const onEachCountry = (feature: Feature<Geometry, any>, layer: Layer) => {
+const onEachCountry = (feature: any, layer: Layer) => {
   const code = feature.properties.ISO_A2;
   layer.on('click', async (e) => {
     try {
