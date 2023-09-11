@@ -1,6 +1,6 @@
 import React from 'react'
 import Operator from '@/interfaces/operator'
-import CountryTable from './CountryTable';
+import CountryTable from './CountryTable'
 
 interface CountrySwitchProps {
     value: string | undefined;

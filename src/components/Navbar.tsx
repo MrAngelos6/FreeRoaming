@@ -1,7 +1,7 @@
+import { Link } from '@chakra-ui/next-js'
 import { Box, Button, ButtonGroup, Flex, IconButton, TabList, useColorMode } from '@chakra-ui/react';
 import { Github, List, Map, Moon, Sun } from 'lucide-react';
-import CustomTab from './CustomTab';
-import { Link } from '@chakra-ui/next-js';
+import CustomTab from './CustomTab'
 
 const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -25,7 +25,7 @@ const Navbar = () => {
                 </ButtonGroup>
             </Flex>
         </Box>
-    )
+    );
 };
 
 export default Navbar;
