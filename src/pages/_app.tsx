@@ -1,6 +1,7 @@
 import { ChakraBaseProvider, extendBaseTheme } from '@chakra-ui/react'
 import { theme } from '@chakra-ui/theme'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { AppProps } from 'next/app'
 
 const {
@@ -29,6 +30,7 @@ const App = ({ Component, pageProps }: AppProps) => (
   <ChakraBaseProvider theme={customTheme}>
     <Component {...pageProps} />
     <Analytics />
+    <SpeedInsights />
   </ChakraBaseProvider>
 );
 
