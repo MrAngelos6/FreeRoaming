@@ -6,14 +6,17 @@ interface CountrySelectorProps {
     onChange: (value: string) => void;
 }
 
-const CountrySelector = ({
-    onChange,
-}: CountrySelectorProps) => {
+const CountrySelector = ({ onChange }: CountrySelectorProps) => {
     const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => onChange(e.target.value);
 
     return (
         <HStack>
-            <Select placeholder='Choisissez un Pays' icon={<Flag />} onChange={handleCountryChange} variant='flushed'>
+            <Select
+                icon={<Flag />}
+                onChange={handleCountryChange}
+                placeholder='Choisissez un Pays'
+                variant='flushed'
+            >
                 { PAYS.map((pays) => <option key={pays.code} value={pays.code}>{pays.name}</option>) }
             </Select>
         </HStack>

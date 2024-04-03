@@ -4,9 +4,9 @@ import styles from './Caption.module.css'
 
 const Caption = () => (
     <HStack display='inline-flex'>
-        <Text><Check color='green' className={styles.status} /> : Confirmé disponible par un abonné</Text>
-        <Text><X color='red' className={styles.status} /> : Confirmé indisponible par un abonné</Text>
-        <Text><HelpCircle color='red' className={styles.status} /> : Confirmé disponible par Free mais non vérifié</Text>
+        <Text><Check className={styles.status} color='green' /> : Confirmé disponible par un abonné</Text>
+        <Text><X className={styles.status} color='red' /> : Confirmé indisponible par un abonné</Text>
+        <Text><HelpCircle className={styles.status} color='red' /> : Confirmé disponible par Free mais non vérifié</Text>
     </HStack>
 );
 

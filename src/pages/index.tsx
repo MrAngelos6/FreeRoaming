@@ -4,28 +4,28 @@ import Head from 'next/head'
 import { Box, Container, Skeleton, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
 import Caption from '@/components/Caption'
-import CountrySelector from '@/components/CountrySelector'
-import CountrySwitch from '@/components/CountrySwitch'
-import Navbar from '@/components/Navbar'
-import styles from '@/components/Map.module.css'
+import CountrySelector from '@/components/List/CountrySelector'
+import CountrySwitch from '@/components/List/CountrySwitch'
+import Navbar from '@/components/Navbar/Navbar'
+import styles from '@/components/Map/Map.module.css'
 
-const LeafletMap = dynamic(() => import("@/components/Map"), {
+const LeafletMap = dynamic(() => import("@/components/Map/Map"), {
   loading: () => <Skeleton className={styles.skeleton} />,
   ssr: false
 });
 
 const Home = () => {
-  const [country, setCountry] = React.useState<string | undefined>();
+  const [country, setCountry] = React.useState<string>();
 
   return (
     <>
       <Head>
         <title>FreeRoaming</title>
-        <meta name='description' content='Site permettant de visualiser dans quel pays Free Mobile est en roaming' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta name='og:title' content='FreeRoaming' />
-        <meta name='og:url' content='https://free-roaming.vercel.app/' />
-        <meta name='og:description' content='Site permettant de visualiser dans quel pays Free Mobile est en roaming' />
+        <meta content='Site permettant de visualiser dans quel pays Free Mobile est en roaming' name='description' />
+        <meta content='width=device-width, initial-scale=1' name='viewport' />
+        <meta content='FreeRoaming' name='og:title' />
+        <meta content='https://free-roaming.vercel.app/' name='og:url' />
+        <meta content='Site permettant de visualiser dans quel pays Free Mobile est en roaming' name='og:description' />
       </Head>
 
       <Container maxW='container.lg'>
@@ -52,7 +52,7 @@ const Home = () => {
         </Tabs>
 
         <Text align='center'>
-          Merci à <Link href='https://twitter.com/ErethaariO' color='blue.400'>@ErethaariO</Link> pour sa contribution !
+          Merci à <Link color='blue.400' href='https://twitter.com/ErethaariO'>@ErethaariO</Link> pour sa contribution !
         </Text>
       </Container>
     </>

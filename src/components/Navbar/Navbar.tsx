@@ -1,7 +1,8 @@
 import { Link } from '@chakra-ui/next-js'
 import { Box, Button, ButtonGroup, Flex, IconButton, TabList, useColorMode } from '@chakra-ui/react';
-import { Github, List, Map, Moon, Sun } from 'lucide-react';
-import CustomTab from './CustomTab'
+import { List, Map, Moon, Sun } from 'lucide-react';
+import GithubIcon from '../Icons/GithubIcon';
+import CustomTab from './CustomTab';
 
 const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -20,7 +21,7 @@ const Navbar = () => {
                         onClick={toggleColorMode}
                     />
                     <Link href='https://github.com/MrAngelos6/FreeRoaming'>
-                        <Button aria-label="Github page" rightIcon={<Github />}>Github</Button>
+                        <Button aria-label="Github page" rightIcon={<GithubIcon colorMode={colorMode} /> }>Github</Button>
                     </Link>
                 </ButtonGroup>
             </Flex>
