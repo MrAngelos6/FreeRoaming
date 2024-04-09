@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@types/leaflet": "1.9.9",
-    "@types/node": "20.12.3",
+    "@types/node": "20.12.6",
     "@types/react": "18.2.74",
     "@types/react-dom": "18.2.23",
     "eslint": "8.57.0",
