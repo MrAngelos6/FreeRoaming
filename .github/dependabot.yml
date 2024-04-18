@@ -10,9 +10,6 @@ updates:
     groups:
       types:
         applies-to: version-updates
-        labels:
-          - "dependencies"
-          - "types"
         patterns:
           - "@types*"
         update-types:
