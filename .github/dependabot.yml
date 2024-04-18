@@ -7,5 +7,19 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
+    groups:
+      types:
+        applies-to: version-updates
+        labels:
+          - "dependencies"
+          - "types"
+        patterns:
+          - "@types*"
+        update-types:
+          - "major"
+          - "minor"
+    ignore:
+      - dependency-name: "@types*"
+        update-types: ["version-update:semver-patch"]
     schedule:
       interval: "daily"
